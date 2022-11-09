@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import authServices from '../Services/authServices'
+import userServices from '../Services/memberServices'
 
-export default function Register () {
+
+export default function Register ({setUser}) {
     const navigate = useNavigate()
 
     let [form, setForm] = useState({
@@ -19,9 +22,16 @@ export default function Register () {
         e.preventDefault()
         console.log(form)
         try {
-            
+            const response = await authServices.register(form)
+            console.log('response ' + response)
+            localStorage.setItem('token', response.data.token)
+
+            const user = await userServices.info()
+            console.log(user)
+            setUser(user.data)
+            navigate('/profile')
         } catch (error) {
-            
+            console.log(error.response.data.error)
         }
 
     }

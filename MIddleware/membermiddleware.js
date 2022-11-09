@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-function authorizedev (req, res, next){
+function authorizemember (req, res, next){
     try {
         let token = req.header('Authorization')
         if (!token){
@@ -8,20 +8,16 @@ function authorizedev (req, res, next){
         }
 
         token = token.replace ("Bearer ", '')
-
+        console.log(token)
         const payload = jwt.verify(token, process.env.JWT_SECRET)
+        console.log(payload)
 
         if (payload.error) {
             throw new Error(payload.error.message)
         }
-
-        req.userId = payload
+        req.userId = payload.id
         req.user= payload.user
         req.developer = payload.developer
-
-        if (!req.developer){
-            throw new Error("You shouldn't be here")
-        }
 
         next()
     } catch (error) {
@@ -30,5 +26,5 @@ function authorizedev (req, res, next){
 }
 
 module.exports = {
-    authorizedev
+    authorizemember
 }
