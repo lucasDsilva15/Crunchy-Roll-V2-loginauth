@@ -1,9 +1,14 @@
-import axios from "axios"
+
 import { useRef } from "react"
+import { useNavigate } from "react-router-dom"
+import devService from '../Services/developerServices'
 
 export default function Addproduct () {
+    const 
+    navigate = useNavigate()
+       
+    let values = useRef({})
     
-        let values = useRef({})
     const handleSubmit = async(e) => {
         e.preventDefault()
        let newProduct = {
@@ -16,8 +21,9 @@ export default function Addproduct () {
 
         }
     try {
-        const data = await axios.post('http://localhost:8080/developer/add', newProduct)
+        const data = await devService.add(newProduct)
         console.log(data)
+        navigate('/allproducts')
 
     } catch (error) {
         console.error(error)

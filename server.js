@@ -5,7 +5,7 @@ const authRoutes = require('./Routes/authRoutes')
 const memberRoutes = require('./Routes/memberRoutes')
 const {authorizedev} = require('./MIddleware/authmiddleware')
 const {authorizemember} = require('./MIddleware/membermiddleware')
-
+const userRoutes = require('./Routes/userRoutes')
 
 require('dotenv').config()
 
@@ -20,6 +20,7 @@ app.use(express.json())
 app.use('/developer', authorizedev, developerRoutes)
 app.use('/auth', authRoutes )
 app.use('/members', authorizemember, memberRoutes)
+app.use('/user', userRoutes)
 
 app.listen(PORT, () => {
     console.log('listening on port ' + PORT)

@@ -8,9 +8,7 @@ function authorizemember (req, res, next){
         }
 
         token = token.replace ("Bearer ", '')
-        console.log(token)
         const payload = jwt.verify(token, process.env.JWT_SECRET)
-        console.log(payload)
 
         if (payload.error) {
             throw new Error(payload.error.message)

@@ -20,6 +20,7 @@ export default function Login ({setUser}) {
 
         try {
             const response = await authServices.login(form)
+            console.log(response)
             localStorage.setItem("token", response.data.token)
             const user = await memberServices.info()
             
