@@ -4,20 +4,23 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import ShowProduct from './pages/AllProducts';
+import AllProducts from './pages/AllProducts';
 import Addproduct from './pages/Addproduct';
 import { useEffect, useState } from 'react';
 import Profile from './pages/Profile';
-import userServices from './Services/memberServices'
+import memberServices from './Services/memberServices'
+import Productpage from './pages/Productpage';
+import userServices from './Services/userServices'
 
 function App() {
 
   const [user, setUser] = useState({})
   const [isLoading, setIsLoading] =useState(true)
+  const [products, setProducts] = useState()
 
   const currentUserInfo = async () => {
     try {
-      const user = await userServices.info()
+      const user = await memberServices.info()
       const {username, email, developer} = user.data
       setUser ({username, email, developer})
     } catch (error) {
@@ -41,23 +44,36 @@ function App() {
     }
   }, [])
   
+
+    const getallProducts = async () => {
+        try {
+            const response = await userServices.allProducts()
+            setProducts(response.data.products)
+        } catch (error) {
+            console.error(error.response.data.error)
+        }
+    }
+    
+  
   let routes;
   if(!isLoading){
     if(user.developer === true){
       routes = (
         <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/allproducts' element={<ShowProduct/>}/>
+        <Route path='/allproducts' element={<AllProducts products={products} getallProducts={getallProducts}/>}/>
         <Route path='/addproduct' element={<Addproduct/>}/>
         <Route path='/profile' element={<Profile username={user.username} email={user.email}/>}/>
+        <Route path='/product/:id' element={<Productpage developer={user.developer}/>}/>
       </Routes>
       )
     } else if (user.developer === false){
       routes = (
         <Routes>
         <Route path='/' element={<Home/>}/>
-        <Route path='/allproducts' element={<ShowProduct/>}/>
-        <Route path='/profile' element={<Profile user={user}/>}/>
+        <Route path='/allproducts' element={<AllProducts products={products} getallProducts={getallProducts} />}/>
+        <Route path='/profile' element={<Profile  username={user.username} email={user.email}/>}/>
+        <Route path='/product/:id' element={<Productpage developer={user.developer}/>}/>
       </Routes>
       )
     } else {
@@ -65,8 +81,9 @@ function App() {
         <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login setUser={setUser}/>}/>
-        <Route path='/allproducts' element={<ShowProduct/>}/>
+        <Route path='/allproducts' element={<AllProducts products={products} getallProducts={getallProducts}/>}/>
         <Route path='/register' element={<Register setUser={setUser}/>}/>
+        <Route path='/product/:id' element={<Productpage developer={user.developer}/>}/>
       </Routes>
       )
     }

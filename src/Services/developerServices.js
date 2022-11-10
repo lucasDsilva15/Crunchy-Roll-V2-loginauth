@@ -16,8 +16,13 @@ const add = (newProduct) => {
     return axiosdev().post('/add', newProduct)
 }
 
+const deleteP = (deletedProduct) => {
+    return axiosdev().delete('/delete', deletedProduct)
+}
+
 const services = {
-    add
+    add,
+    deleteP,
 }
 
 export default services
