@@ -3,7 +3,8 @@ const router = express.Router()
 
 const developerController = require('../Controllers/developercontrollers')
 
+router.delete('/:id/delete', developerController.deleteProduct)
 router.post('/add', developerController.newProduct)
-router.delete('/delete', developerController.deleteProduct)
+router.put('/:id/edit', developerController.editedProduct )
 
 module.exports = router

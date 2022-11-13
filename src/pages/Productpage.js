@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react"
 import userService from '../Services/userServices'
 import devService from '../Services/developerServices'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import EditProduct from "../components/EditProduct"
 
 export default function Productpage ({developer}) {
     const navigate = useNavigate()
     const [product, setProducts] = useState()
+    const params = useParams()
     
     const deleteProduct = async () => {
         try {
-            const response = await devService.deleteP()
+            const response = await devService.deleteP(params.id)
             console.log(response)
             navigate('/allproducts')
         } catch (error) {
@@ -20,7 +21,7 @@ export default function Productpage ({developer}) {
 
     const getProduct = async () => {
         try {
-            const response = await userService.showProduct()
+            const response = await userService.showProduct(params.id)
             setProducts(response.data.product)
         } catch (error) {
             console.log(error)
@@ -39,7 +40,7 @@ export default function Productpage ({developer}) {
             {developer === true && (
                 <div>
                     <button onClick={deleteProduct}> Delete</button>
-                    <EditProduct/>
+                    <EditProduct product={product}/>
                 </div>
             )}
             

@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import memberServices from './Services/memberServices'
 import Productpage from './pages/Productpage';
 import userServices from './Services/userServices'
+import Wishlist from './pages/Wishlist';
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
         <Route path='/addproduct' element={<Addproduct/>}/>
         <Route path='/profile' element={<Profile username={user.username} email={user.email}/>}/>
         <Route path='/product/:id' element={<Productpage developer={user.developer}/>}/>
+        <Route path='/wishlist' element={<Wishlist/>}/>
       </Routes>
       )
     } else if (user.developer === false){
@@ -74,6 +76,7 @@ function App() {
         <Route path='/allproducts' element={<AllProducts products={products} getallProducts={getallProducts} />}/>
         <Route path='/profile' element={<Profile  username={user.username} email={user.email}/>}/>
         <Route path='/product/:id' element={<Productpage developer={user.developer}/>}/>
+        <Route path='/wishlist' element={<Wishlist/>}/>
       </Routes>
       )
     } else {

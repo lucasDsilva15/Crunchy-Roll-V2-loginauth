@@ -13,6 +13,7 @@ export default function NavBar ({setUser, user, developer}) {
                 <Link to='/allproducts'> All Products </Link>
                 <Link to='/profile'>Profile </Link>
                 <Link to='/addproduct'> Add Product</Link>
+                <Link to='/wishlist'> Wishlist </Link>
                 <Link onClick={logout}>LogOut</Link>
             </div>
     ) 
@@ -23,6 +24,7 @@ export default function NavBar ({setUser, user, developer}) {
                 <Link to='/'> Home </Link>
                 <Link to='/allproducts'> All Products </Link>
                 <Link to='/profile'>Profile </Link>
+                <Link to='/wishlist'> Wishlist</Link>
                 <Link onClick={logout}>LogOut</Link>
             </div>  
         )  

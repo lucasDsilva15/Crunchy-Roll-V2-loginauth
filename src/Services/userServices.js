@@ -8,8 +8,8 @@ const allProducts = () => {
    return axiosUser().get('/index')
 }
 
-const showProduct = () => {
-    return axiosUser().get('/show')
+const showProduct = (id) => {
+    return axiosUser().get(`/${id}/show`)
 }
 
 const services = {
