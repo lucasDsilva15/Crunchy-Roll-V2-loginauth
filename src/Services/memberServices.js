@@ -17,8 +17,18 @@ const info = () => {
     return axiosUser().get('/info')
 }
 
+const findWishlist = () => {
+    return axiosUser().get('/wishlistindex')
+}
+
+const addToWishlist = () => {
+    return axiosUser().post('/addtowishlist')
+}
+
 const services = {
-    info
+    info,
+    findWishlist,
+    addToWishlist
 }
 
 export default services

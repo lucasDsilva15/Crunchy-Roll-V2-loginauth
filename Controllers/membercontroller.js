@@ -1,4 +1,5 @@
 const User = require('../models/Users')
+const Wishlist = require('../models/Wishlist')
 
 const info = async (req, res) => { 
     try {
@@ -9,6 +10,27 @@ const info = async (req, res) => {
     }
 }
 
+const allWishlistItems = async(req, res) => {
+    try {
+        const foundWishList = await Wishlist.find({userN: req.user})
+        res.status(200).json({userWishlist: foundWishList}) 
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+    
+}
+
+const addToWishlist = async (req, res) => {
+    try {
+        const addWish = await Wishlist.create(req.body)
+        res.status(200).json({wishlistitem: addWish})
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+}
+
 module.exports = {
-    info
+    info,
+    allWishlistItems,
+    addToWishlist
 }

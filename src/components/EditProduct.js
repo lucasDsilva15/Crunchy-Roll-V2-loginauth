@@ -1,10 +1,8 @@
 import { useRef } from "react"
-import { useNavigate, useRouteLoaderData } from "react-router-dom"
 import devServices from '../Services/developerServices'
 
 export default function EditProduct ({product}) {
     const values = useRef({})
-    const navigate = useNavigate()
     const handleSubmit = async () => {
         const editedProduct = {
             name: values.current.name.value,
@@ -17,7 +15,6 @@ export default function EditProduct ({product}) {
         try {
             const response = await devServices.edit(product._id, editedProduct)
             console.log(response)
-            navigate(`/product/${product._id}`)
             
         } catch (error) {
           console.log(error)  
