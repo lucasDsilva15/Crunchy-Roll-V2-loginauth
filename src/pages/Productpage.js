@@ -36,6 +36,7 @@ export default function Productpage ({developer}) {
             <h1> {product.name} </h1>
             <img src={product.image} alt={product.name} height='400' width='350'/><br/>
             {product.description}<br/>
+            {product.quantity}<br/>
             <button> Add to cart </button>
             {developer === true && (
                 <div>

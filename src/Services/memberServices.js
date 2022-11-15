@@ -21,14 +21,23 @@ const findWishlist = () => {
     return axiosUser().get('/wishlistindex')
 }
 
-const addToWishlist = () => {
-    return axiosUser().post('/addtowishlist')
+const addToWishlist = (product) => {
+    return axiosUser().post('/addtowishlist', product)
+}
+
+const deleteWishListItem = (id) => {
+    return axiosUser().delete(`/${id}/delete`)
+}
+const editWishListItem = (id, numb) => {
+    return axiosUser().put(`/${id}/edit`, numb)
 }
 
 const services = {
     info,
     findWishlist,
-    addToWishlist
+    addToWishlist,
+    deleteWishListItem,
+    editWishListItem
 }
 
 export default services

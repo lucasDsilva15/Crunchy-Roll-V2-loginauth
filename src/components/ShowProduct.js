@@ -4,11 +4,13 @@ import memberServices from "../Services/memberServices"
 export default function ShowProduct ({product}) {
     const navigate = useNavigate()
     const addProductToWishlist = async () => {
-        const response = await memberServices.addToWishlist(product)
+       const {_id, ...rest} = product
+        const response = await memberServices.addToWishlist({...rest, quantity:1, productid: _id })
+        console.log(response)
     }
     return(
-        <div>
-            <img src={product.image} height='300' width='300' alt={product.name}/><br/>
+        <div className="perproduct">
+            <img src={product.image} height='400' alt={product.name}/><br/>
             product: {product.name}
             {product.price} <br/>
             qty: {product.quantity} <br/>

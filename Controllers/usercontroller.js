@@ -15,8 +15,7 @@ const purchaseProduct = async (req, res) => {
     res.status(200).json({updated: updatedProduct})
    } catch (error) {
     res.status(400).json({error: error.message})
-   } 
-    
+   }   
 }
 
 const showProduct = async (req, res) => {

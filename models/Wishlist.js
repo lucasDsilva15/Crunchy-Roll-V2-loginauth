@@ -28,6 +28,10 @@ const wishlistSchema = new Schema ({
     quantity: {
         type: Number,
         require: true
+    },
+    productid: {
+        type: String,
+        require: true
     }  
 })
 

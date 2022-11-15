@@ -12,7 +12,7 @@ const info = async (req, res) => {
 
 const allWishlistItems = async(req, res) => {
     try {
-        const foundWishList = await Wishlist.find({userN: req.user})
+        const foundWishList = await Wishlist.find({user: req.user})
         res.status(200).json({userWishlist: foundWishList}) 
     } catch (error) {
         res.status(400).json({error: error.message})
@@ -22,8 +22,27 @@ const allWishlistItems = async(req, res) => {
 
 const addToWishlist = async (req, res) => {
     try {
-        const addWish = await Wishlist.create(req.body)
+        const addWish = await Wishlist.create({...req.body, user: req.user})
         res.status(200).json({wishlistitem: addWish})
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+}
+
+const deleteWishListItem = async (req, res) => {
+    try {
+        const deletedItem = await Wishlist.findByIdAndDelete(req.params.id)
+        res.status(200).json({wishlistItem: deletedItem})
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+}
+
+const editWishListItem = async (req,res) => {
+    try {
+        console.log(req.params.id)
+        const editedItem = await Wishlist.findByIdAndUpdate(req.params.id, req.body)
+        res.status(200).json({editedItem: editedItem})
     } catch (error) {
         res.status(400).json({error: error.message})
     }
@@ -32,5 +51,7 @@ const addToWishlist = async (req, res) => {
 module.exports = {
     info,
     allWishlistItems,
-    addToWishlist
+    addToWishlist,
+    deleteWishListItem,
+    editWishListItem
 }
