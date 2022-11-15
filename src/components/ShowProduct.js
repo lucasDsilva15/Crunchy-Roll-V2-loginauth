@@ -1,12 +1,25 @@
+import { Button, IconButton } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import memberServices from "../Services/memberServices"
+import StarOutlineIcon from '@mui/icons-material/StarOutline';
+
 
 export default function ShowProduct ({product}) {
+    const buttonSx = {
+        backgroundColor:'#ff9100',
+        '&:hover':{
+            backgroundColor:'#f57c00'
+        }
+    }
     const navigate = useNavigate()
     const addProductToWishlist = async () => {
-       const {_id, ...rest} = product
+        try {
+        const {_id, ...rest} = product
         const response = await memberServices.addToWishlist({...rest, quantity:1, productid: _id })
-        console.log(response)
+        console.log(response) 
+        } catch (error) {
+            alert(error.response.data.error)
+        }
     }
     return(
         <div className="perproduct">
@@ -14,8 +27,10 @@ export default function ShowProduct ({product}) {
             product: {product.name}
             {product.price} <br/>
             qty: {product.quantity} <br/>
-            <button onClick={addProductToWishlist}> Add To Wishlist</button>
-            <button onClick={() => navigate(`/product/${product._id}`)}> Buy </button>
+            <IconButton aria-label="Example" onClick={addProductToWishlist} >
+                <StarOutlineIcon sx={{color: 'orange'}}/>
+            </IconButton>
+            <Button sx={buttonSx} variant='contained' onClick={() => navigate(`/product/${product._id}`)}> Buy </Button>
         </div>
     )
 }

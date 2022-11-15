@@ -1,3 +1,4 @@
+import { Button } from "@mui/material"
 import { useRef } from "react"
 import devServices from '../Services/developerServices'
 
@@ -42,7 +43,7 @@ export default function EditProduct ({product}) {
                     <label htmlFor='quantity'>Quantity: </label>
                     <input type='number' id='quantity' name='quantity' defaultValue={product.quantity} ref={ref => values.current.quantity = ref}/><br/>
                 
-                    <input type='submit' value='Submit' className='submitbtn'/>
+                    <Button variant='contained' color='success'type='submit' value='Submit' className='submitbtn'>Submit </Button>
                 </form>
         </div>
         

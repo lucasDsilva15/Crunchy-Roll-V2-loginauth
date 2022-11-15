@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import ShowProduct from "../components/ShowProduct"
 
 
+
 export default function AllProducts ({setProducts, products, getallProducts}) {
     
     useEffect(()=> {

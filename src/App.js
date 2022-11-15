@@ -12,6 +12,10 @@ import memberServices from './Services/memberServices'
 import Productpage from './pages/Productpage';
 import userServices from './Services/userServices'
 import Wishlist from './pages/Wishlist';
+import Manga from './pages/Manga';
+import Figurines from './pages/Figurines';
+import DVD from './pages/DVD';
+import Apparel from './pages/Apparel';
 
 function App() {
 
@@ -63,6 +67,10 @@ function App() {
         <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/allproducts' element={<AllProducts products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/manga' element={<Manga/>}/>
+        <Route path='/figurines' element={<Figurines/>}/>
+        <Route path='/dvd' element={<DVD/>}/>
+        <Route path='/apparel' element={<Apparel/>}/>
         <Route path='/addproduct' element={<Addproduct/>}/>
         <Route path='/profile' element={<Profile username={user.username} email={user.email}/>}/>
         <Route path='/product/:id' element={<Productpage developer={user.developer}/>}/>
