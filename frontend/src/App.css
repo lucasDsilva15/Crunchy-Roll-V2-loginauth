@@ -1,0 +1,214 @@
+.page-container{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#indexproducts{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+.perproduct{
+    text-align: center;
+    width: 33%;
+    min-height: 500px;
+    display: inline-block; 
+    padding-top: 15px;
+}
+#showpagecontainer{
+    display: flex;  
+}
+#showpage{
+    display: flex;
+    flex-direction: column;
+}
+#imageshowpage{
+    display: flex;
+    justify-content: center;
+    height:600px;
+    width: 50vw;
+    
+    margin-top: 30px;
+}
+#productinfo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 50vw;
+    margin-right: 20px;
+    font-size: 30px;
+}
+#purchasebutton{
+    height: 80px;
+    width: 250px;
+    align-self: center;
+    margin-top: 50px;
+}
+#outofstock{
+    height: 80px;
+    width: 250px;
+    align-self: center;
+}
+#productprice{
+    font-size: 40px;
+}
+#navbar{
+    display: flex;
+    flex-direction: row;
+}
+.link {
+    font-size: 20px;
+    padding: 10px;
+    text-decoration-line: none;
+    color: white;
+}
+.link:hover{
+    color:#ff9100;
+    cursor: pointer;
+}
+#logo{
+    cursor: default;
+    width: fit-content;
+}
+#navbar{
+    height: 100px;
+}
+#navbarpad{
+    padding-top: 110px;
+}
+#product-image:hover{
+    cursor: pointer;
+}
+#wishlistdescription{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border-top: solid rgba(255, 128, 0, 0.4);
+    border-bottom: solid rgba(255, 128, 0, 0.4);
+}
+#wishlistbtns{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 20px;
+}
+h1{
+    margin-bottom: 3px;
+}
+#wishlistbutton{
+    width: fit-content;
+    margin-right: 10px;
+}
+.menulink{
+    cursor: pointer;
+    color: black;
+}
+.menulink:hover{
+    color:#ff9100
+}
+.loginreg{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+#loginregbtn{
+    margin-left: 84px;
+}
+
+#purchasemaincontainer{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    width: 100vw
+}
+#thankyouimg{
+    margin-left: 160px;
+}
+#thankyoumsg{
+    font-size: 40px;
+    padding: 15px
+}
+#footer{
+    height: 300px;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    margin-top: auto;
+    padding:  50px 10px;
+    z-index: 1;
+    justify-content: space-evenly;
+    
+}
+#containerhelp{
+    display: flex;
+    flex-direction: column;
+    width:33%;
+}
+#containerlegal{
+    display: flex;
+    flex-direction: column;
+    width:33%
+}
+#containerabout{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    width:33%
+}
+h6{
+    font-size: 24px;
+}
+.footerlist{
+    font-size: 16px;
+    
+}
+.listitems{
+    cursor: pointer;
+    width:fit-content;
+    list-style-type: none;
+}
+#webbanner{
+    width: 100vw;
+    cursor: pointer;
+    
+}
+#homepagesect1{
+    display: flex;
+    justify-content: center;
+
+}
+#image1{
+    position: relative;
+}
+
+#image1text{
+    position: absolute;
+    z-index: 1;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    background-color: rgba(136, 138, 138, 0.3); 
+    font-size: 80px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: fit-content;
+    margin: auto;
+    transition: background-color .3s ease-in-out
+    
+}
+#image1:hover > #image1text{
+    background-color: rgba(136, 138, 138, 0.9); ; 
+}
+
