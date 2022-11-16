@@ -21,7 +21,6 @@ export default function Wishlist ({user}) {
     console.log(wishList)
     return(
         <div>
-            <h1>Wishlist </h1>
             {wishList ? (
                 <div>
                     {wishList.map((w) => {

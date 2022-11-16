@@ -23,10 +23,10 @@ export default function ShowProduct ({product}) {
     }
     return(
         <div className="perproduct">
-            <img src={product.image} height='400' alt={product.name}/><br/>
-            product: {product.name}
-            {product.price} <br/>
-            qty: {product.quantity} <br/>
+            <img id='product-image' src={product.image} height='400' onClick={() => navigate(`/product/${product._id}`)} alt={product.name}/><br/>
+            {product.name}<br/>
+            ${product.price} <br/>
+            Stock: {product.quantity} <br/>
             <IconButton aria-label="Example" onClick={addProductToWishlist} >
                 <StarOutlineIcon sx={{color: 'orange'}}/>
             </IconButton>
