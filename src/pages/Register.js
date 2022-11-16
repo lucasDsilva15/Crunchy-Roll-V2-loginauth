@@ -1,4 +1,5 @@
-import { Button } from "@mui/material"
+import { Button, TextField } from "@mui/material"
+import { Box } from "@mui/system"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import authServices from '../Services/authServices'
@@ -49,51 +50,28 @@ export default function Register ({setUser}) {
     return(
         <div className="loginreg">
             <h1>Register</h1>
-            <br/>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
-                <br />
-                <input 
-                    type="text" 
-                    id="username"
-                    name="username"
-                    onChange={handleChange}
-                    value={form.username}
-                />
-                <br /><br />
-                <label htmlFor="email">Email:</label>
-                <br />
-                <input 
-                    type="email" 
-                    id="email"
-                    name="email"
-                    onChange={handleChange}
-                    value={form.email}
-                />
-                <br /><br />
-                <label htmlFor="password">Password:</label>
-                <br />
-                <input 
-                    type="password" 
-                    id="password"
-                    name="password"
-                    onChange={handleChange}
-                    value={form.password}
-                />
-                <br/><br/>
-                <label htmlFor="developer"> Developer: </label>
-                <input 
-                    type='checkbox'
-                    id='developer'
-                    name='developer'
-                    onChange={()=> setForm({...form, developer: !form.developer})}
-                    value={form.developer}
-                    />
-                <br /><br />
-                <Button sx={buttonSx} size='large' id='loginregbtn'>
+            <Box component='form'
+              sx={{
+                '& .MuiTextField-root': { m: 1, width: '25ch' },
+              }}
+              noValidate
+              autoComplete="on"
+              onSubmit={handleSubmit}>
+                <div>
+                    <TextField required id='outlined-required username' name='username' label='User Name' value={form.username} onChange={handleChange}/>
+                </div>
+                <div>
+                    <TextField required id='outlined-required email' name='email' label='E-Mail' value={form.email} onChange={handleChange}/>
+                </div>
+                <div>
+                    <TextField required id='outlined-required password' name='password' label='Password' type='password' value={form.password} onChange={handleChange}/>
+                </div>
+            <br/><br/>
+                <Button sx={buttonSx} size='large' type='submit' id='loginregbtn'>
                             Submit
                         </Button>
-            </form>
+            
+            </Box>
         </div> 
     )
     

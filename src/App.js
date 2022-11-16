@@ -18,6 +18,7 @@ import DVD from './pages/DVD';
 import Apparel from './pages/Apparel';
 import Misc from './pages/Misc';
 import Purchased from './pages/Purchased';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -119,6 +120,7 @@ function App() {
     <div className="App">
       <NavBar user={user.username} developer={user.developer} setUser={setUser}/>
       {routes}
+      {/* <Footer/> */}
       
     </div>
   );

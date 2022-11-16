@@ -1,4 +1,4 @@
-import { Button } from "@mui/material"
+import { Box, Button, TextField } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import authServices from '../Services/authServices'
@@ -51,30 +51,23 @@ export default function Login ({setUser}) {
     return(
         <div className="loginreg">
             <h1>Login</h1>
-            <br/>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
-                <br />
-                <input 
-                    type="text" 
-                    id="username"
-                    name="username"
-                    onChange={handleChange}
-                    value={form.username}
-                />
-                <br /><br />
-                <label htmlFor="password">Password:</label>
-                <br />
-                <input 
-                    type="password" 
-                    id="password"
-                    name="password"
-                    onChange={handleChange}
-                    value={form.password}
-                />
+            <Box component='form'
+              sx={{
+                '& .MuiTextField-root': { m: 1, width: '25ch' },
+              }}
+              noValidate
+              autoComplete="on"
+              onSubmit={handleSubmit}>
+                <div>
+                    <TextField required id='outlined-required username' name='username' label='User Name' value={form.username} onChange={handleChange}/>
+                </div>
+
+                <div>
+                    <TextField required id='outlined-required password' name='password' label='Password' type='password' value={form.password} onChange={handleChange}/>
+                </div>
                 <br /><br />
                 <Button sx={buttonSx} size='large' id='loginregbtn' type='submit' value='Submit'> Submit </Button>
-            </form>
+            </Box>
         </div>
     )
 }

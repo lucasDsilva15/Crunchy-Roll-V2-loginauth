@@ -5,7 +5,7 @@ const userController = require('../Controllers/usercontroller')
 
 router.get('/:id/show', userController.showProduct)
 router.get('/index', userController.allProducts)
-router.post('/purchase', userController.purchaseProduct)
+router.put('/:id/purchase', userController.purchaseProduct)
 
 
 module.exports = router

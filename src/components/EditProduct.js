@@ -1,9 +1,13 @@
-import { Button } from "@mui/material"
+import { Button, TextField } from "@mui/material"
+import { Box } from "@mui/system"
 import { useRef } from "react"
 import devServices from '../Services/developerServices'
 
 export default function EditProduct ({product}) {
+
     const values = useRef({})
+
+    
     const handleSubmit = async () => {
         const editedProduct = {
             name: values.current.name.value,
@@ -24,27 +28,40 @@ export default function EditProduct ({product}) {
     return(
         <div>
             <h1>Edit Product information</h1>
-            <form onSubmit={handleSubmit}>
-                    <label htmlFor='name'>Product Name: </label>
-                    <input type='text' id='name' name='name' defaultValue={product.name}ref={ref => values.current.name = ref}/> <br/>
-                    
-                    <label htmlFor='description'>Product Description: </label>
-                    <input type='textarea' id='productdescription' name='productdescription' defaultValue={product.description} ref={ref => values.current.description = ref}/><br/>
-                    
-                    <label htmlFor='productimage'>Product Image: </label>
-                    <input type='text' id='productimage' name='productimage' defaultValue={product.image} ref={ref => values.current.image = ref}/><br/>
+            <Box component='form'
+              sx={{
+                '& .MuiTextField-root': { m: 1, width: '25ch' },
+              }}
+              noValidate
+              autoComplete="on"
+              onSubmit={handleSubmit}>
+                <div>
+                    <TextField required id='outlined-required' label='Product Name' defaultValue={product.name} inputRef={ref => values.current.name = ref}/>
+                </div>
 
-                    <label htmlFor="category">Product Category: </label>
-                    <input type='text' id='category' name='category' defaultValue={product.category} ref={ref => values.current.category = ref}/><br/>
-                    
-                    <label htmlFor='price'>Price: </label>
-                    <input type='number' step='0.01' id='price' name='price' defaultValue={product.price}ref={ref => values.current.price = ref}/><br/>
+                <div>
+                    <TextField required id='outlined-required' label='Description' multiline maxRows={5}  defaultValue={product.description} inputRef={ref => values.current.description = ref}/>
+                </div>
 
-                    <label htmlFor='quantity'>Quantity: </label>
-                    <input type='number' id='quantity' name='quantity' defaultValue={product.quantity} ref={ref => values.current.quantity = ref}/><br/>
-                
+                <div>
+                    <TextField required id='outlined-required' label='Product Image' multiline maxRows={3} defaultValue={product.image} inputRef={ref => values.current.image = ref}/>
+                </div>
+
+                <div>
+                    <TextField required id='outlined-required' label='Category'  defaultValue={product.category} inputRef={ref => values.current.category = ref}/>
+                </div>
+
+                <div>
+                    <TextField required id='outlined-required' label='Price' type='number' defaultValue={product.price} inputRef={ref => values.current.price = ref}/>
+                </div>
+
+                <div>
+                    <TextField required id='outlined-required' label='Stock' type='number' defaultValue={product.quantity} inputRef={ref => values.current.quantity = ref}/>
+                </div>
+                <div>
                     <Button variant='contained' color='success'type='submit' value='Submit' className='submitbtn'>Submit </Button>
-                </form>
+                </div>
+            </Box>
         </div>
         
     )

@@ -39,6 +39,14 @@ export default function Productpage ({developer}) {
             console.log(error)
         }
     }
+
+    const handlePurchase = async () => {
+        try {
+            await userService.purchaseProduct(params.id)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     useEffect(()=> {
         getProduct()
         // eslint-disable-next-line
@@ -62,7 +70,7 @@ export default function Productpage ({developer}) {
                     {product.quantity === 0? 'OUT OF STOCK' : product.quantity + ' In Stock'} 
                 </p>
             {product.quantity === 0? <Button variant='disabled' sx={{bgcolor: 'text.disabled'}}id='outofstock'> Out Of Stock</Button> : 
-                        <Button sx={buttonSx} id='purchasebutton' onClick={() => navigate(`/purchased/${product._id}`)}>
+                        <Button sx={buttonSx} id='purchasebutton' onClick={() =>{ navigate(`/purchased/${product._id}`); handlePurchase()}}>
                             Buy Now
                         </Button>}
                 </div>
