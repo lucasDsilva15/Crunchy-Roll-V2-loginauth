@@ -1,7 +1,9 @@
 import axios from 'axios'
+import baseURL from './baseUrl'
 
 const axiosauth = axios.create({
-    baseURL: 'http://localhost:8080/auth/'
+    baseURL: baseURL + '/auth'
+
 })
 
 const login = (userCredentials) => {

@@ -1,7 +1,9 @@
 import axios from 'axios'
+import baseURL from './baseUrl'
 
 const axiosUser = () => axios.create({
-    baseURL: 'http://localhost:8080/user'
+    baseURL: baseURL + '/user'
+
 })
 
 const allProducts = () => {
