@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import ShowProduct from "../components/ShowProduct"
 
-export default function DVD ({products, getallProducts}) {
+export default function Misc ({products, getallProducts}) {
 
 
     useEffect(()=> {
@@ -15,7 +15,7 @@ export default function DVD ({products, getallProducts}) {
         <div>
             <div id='indexproducts'>
             {products ? (
-                products.filter(p => p.category === 'dvd').map((p) => {
+                products.filter(p => p.category === 'misc.').map((p) => {
                 return <ShowProduct key={p._id} product={p}/>
             })
             

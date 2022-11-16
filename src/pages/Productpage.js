@@ -14,9 +14,10 @@ export default function Productpage ({developer}) {
     const buttonSx = {
         backgroundColor:'#ff9100',
         color: 'black',
+        boxShadow: '10',
         '&:hover':{
             backgroundColor:'#f57c00',
-            boxShadow: '5',
+            boxShadow: '15',
         }
     }
     
@@ -40,6 +41,7 @@ export default function Productpage ({developer}) {
     }
     useEffect(()=> {
         getProduct()
+        // eslint-disable-next-line
     }, [])
     return (
         product ? (
@@ -60,7 +62,7 @@ export default function Productpage ({developer}) {
                     {product.quantity === 0? 'OUT OF STOCK' : product.quantity + ' In Stock'} 
                 </p>
             {product.quantity === 0? <Button variant='disabled' sx={{bgcolor: 'text.disabled'}}id='outofstock'> Out Of Stock</Button> : 
-                        <Button sx={buttonSx} id='purchasebutton'>
+                        <Button sx={buttonSx} id='purchasebutton' onClick={() => navigate(`/purchased/${product._id}`)}>
                             Buy Now
                         </Button>}
                 </div>

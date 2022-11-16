@@ -16,6 +16,8 @@ import Manga from './pages/Manga';
 import Figurines from './pages/Figurines';
 import DVD from './pages/DVD';
 import Apparel from './pages/Apparel';
+import Misc from './pages/Misc';
+import Purchased from './pages/Purchased';
 
 function App() {
 
@@ -67,14 +69,16 @@ function App() {
         <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/allproducts' element={<AllProducts products={products} getallProducts={getallProducts}/>}/>
-        <Route path='/manga' element={<Manga/>}/>
-        <Route path='/figurines' element={<Figurines/>}/>
-        <Route path='/dvd' element={<DVD/>}/>
-        <Route path='/apparel' element={<Apparel/>}/>
+        <Route path='/manga' element={<Manga products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/figurines' element={<Figurines products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/dvd' element={<DVD products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/misc' element={<Misc products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/apparel' element={<Apparel products={products} getallProducts={getallProducts}/>}/>
         <Route path='/addproduct' element={<Addproduct/>}/>
         <Route path='/profile' element={<Profile username={user.username} email={user.email}/>}/>
         <Route path='/product/:id' element={<Productpage developer={user.developer}/>}/>
         <Route path='/wishlist' element={<Wishlist user={user}/>}/>
+        <Route path='/purchased/:id' element={<Purchased/>}/>
       </Routes>
       )
     } else if (user.developer === false){
@@ -82,9 +86,15 @@ function App() {
         <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/allproducts' element={<AllProducts products={products} getallProducts={getallProducts} />}/>
+        <Route path='/manga' element={<Manga products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/figurines' element={<Figurines products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/dvd' element={<DVD products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/misc' element={<Misc products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/apparel' element={<Apparel products={products} getallProducts={getallProducts}/>}/>
         <Route path='/profile' element={<Profile  username={user.username} email={user.email}/>}/>
         <Route path='/product/:id' element={<Productpage developer={user.developer}/>}/>
         <Route path='/wishlist' element={<Wishlist user={user}/>}/>
+        <Route path='/purchased/:id' element={<Purchased/>}/>
       </Routes>
       )
     } else {
@@ -93,8 +103,14 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/login' element={<Login setUser={setUser}/>}/>
         <Route path='/allproducts' element={<AllProducts products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/manga' element={<Manga products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/figurines' element={<Figurines products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/dvd' element={<DVD products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/misc' element={<Misc products={products} getallProducts={getallProducts}/>}/>
+        <Route path='/apparel' element={<Apparel products={products} getallProducts={getallProducts}/>}/>
         <Route path='/register' element={<Register setUser={setUser}/>}/>
         <Route path='/product/:id' element={<Productpage developer={user.developer}/>}/>
+        <Route path='/purchased/:id' element={<Purchased/>}/>
       </Routes>
       )
     }

@@ -1,5 +1,5 @@
 import DeleteForever from '@mui/icons-material/DeleteForeverOutlined'
-import { Button, IconButton } from '@mui/material'
+import { Button } from '@mui/material'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import memberServices from '../Services/memberServices'
@@ -18,7 +18,7 @@ export default function WishListItem ({item, retrieveWishlist}) {
     }
     const handleDelete = async () => {
         try {
-            const response = await memberServices.deleteWishListItem(item._id)
+            await memberServices.deleteWishListItem(item._id)
             retrieveWishlist()
         } catch (error) {
             console.log(error)
@@ -38,9 +38,9 @@ export default function WishListItem ({item, retrieveWishlist}) {
         
         <div id='wishlistdescription'>
            <h1>{item.name}</h1>
-            <img src={item.image} alt={item.name} height='200' width='200'/>
-           ${item.price}<br/>
-           {item.quantity}<br/>
+            <img src={item.image} alt={item.name} height='270' width='200'/>
+           <h2>${item.price}</h2>
+           Qty: {item.quantity}<br/>
            <form onBlur={handleSubmit}>
             <label htmlFor='editqty'>Change Qty: </label>
             <input type='number' id='editqty' onChange={handleChange}/><br/> 

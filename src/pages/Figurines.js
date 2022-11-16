@@ -1,7 +1,27 @@
-export default function Figurines () {
+import { useEffect } from "react"
+import ShowProduct from "../components/ShowProduct"
+
+export default function Figurines ({products, getallProducts}) {
+
+
+    useEffect(()=> {
+        getallProducts()
+        // eslint-disable-next-line
+    }, [])
+
+    
     return(
         <div>
-            <h1>Figurines</h1>
+            <div id='indexproducts'>
+            {products ? (
+                products.filter(p => p.category === 'figurine').map((p) => {
+                return <ShowProduct key={p._id} product={p}/>
+            })
+            
+            ): (
+                <h1> Loading... </h1>
+            )}
+            </div>
         </div>
     )
 }

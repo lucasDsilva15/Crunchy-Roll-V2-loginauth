@@ -19,11 +19,12 @@ export default function ShowProduct ({product}) {
         console.log(response) 
         } catch (error) {
             alert(error.response.data.error)
+            console.log(error)
         }
     }
     return(
         <div className="perproduct">
-            <img id='product-image' src={product.image} height='400' onClick={() => navigate(`/product/${product._id}`)} alt={product.name}/><br/>
+            <img id='product-image'src={product.image} height='400' onClick={() => navigate(`/product/${product._id}`)} alt={product.name}/><br/>
             {product.name}<br/>
             ${product.price} <br/>
             Stock: {product.quantity} <br/>

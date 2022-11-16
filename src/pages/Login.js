@@ -1,3 +1,4 @@
+import { Button } from "@mui/material"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import authServices from '../Services/authServices'
@@ -5,6 +6,16 @@ import memberServices from '../Services/memberServices'
 
 export default function Login ({setUser}) {
     const navigate = useNavigate()
+
+    const buttonSx = {
+        backgroundColor:'#ff9100',
+        color: 'black',
+        boxShadow: '10',
+        '&:hover':{
+            backgroundColor:'#f57c00',
+            boxShadow: '15',
+        }
+    }
 
     let [form, setForm] = useState({ 
         username: '',
@@ -38,8 +49,9 @@ export default function Login ({setUser}) {
     }
 
     return(
-        <div>
+        <div className="loginreg">
             <h1>Login</h1>
+            <br/>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username:</label>
                 <br />
@@ -61,7 +73,7 @@ export default function Login ({setUser}) {
                     value={form.password}
                 />
                 <br /><br />
-                <button>Submit</button>
+                <Button sx={buttonSx} size='large' id='loginregbtn' type='submit' value='Submit'> Submit </Button>
             </form>
         </div>
     )
