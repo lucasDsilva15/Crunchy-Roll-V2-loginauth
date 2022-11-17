@@ -222,9 +222,6 @@ h6{
 .image1:hover > .image1text{
     background-color: rgba(136, 138, 138, 0.9);
 }
-#logo{
-    cursor: pointer;
-}
 .priceper{
     font-size: 24px;
     
