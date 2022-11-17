@@ -17,6 +17,7 @@ export default function Wishlist ({user}) {
 
     useEffect(() => {
         retrieveWishlist()
+        // eslint-disable-next-line
     }, [])
     console.log(wishList)
     return(

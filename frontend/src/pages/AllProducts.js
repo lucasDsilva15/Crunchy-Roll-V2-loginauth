@@ -7,6 +7,7 @@ export default function AllProducts ({setProducts, products, getallProducts}) {
     
     useEffect(()=> {
         getallProducts()
+        // eslint-disable-next-line
     }, [])
     return(
         <div>
@@ -17,7 +18,7 @@ export default function AllProducts ({setProducts, products, getallProducts}) {
             })
             
             ): (
-                <h1> Loading... 1</h1>
+                <h1> Loading... </h1>
             )}
             </div>
         </div>

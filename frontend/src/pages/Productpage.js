@@ -3,7 +3,7 @@ import userService from '../Services/userServices'
 import devService from '../Services/developerServices'
 import { useNavigate, useParams } from "react-router-dom"
 import EditProduct from "../components/EditProduct"
-import { Button } from "@mui/material"
+import { Button, InputLabel, NativeSelect } from "@mui/material"
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
 export default function Productpage ({developer}) {
@@ -66,6 +66,27 @@ export default function Productpage ({developer}) {
                 <p>
                     {product.description}
                 </p>
+                {product.category === 'apparel' && (
+                    <div>
+                         <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                            Size
+                        </InputLabel>
+                        <NativeSelect
+                            defaultValue='M'
+                            inputProps={{
+                                name: 'Size',
+                                id: 'uncontrolled-native',
+                                size: 'large'
+                            }}
+                            >
+                            <option value='XS'>XS</option>
+                            <option value='S'>S</option>
+                            <option value='M'>M</option>
+                            <option value='L'>L</option>
+                            <option value='XL'>XL</option>
+                        </NativeSelect>
+                    </div>
+                )}
                 <p id='productinventory'>
                     {product.quantity === 0? 'OUT OF STOCK' : product.quantity + ' In Stock'} 
                 </p>

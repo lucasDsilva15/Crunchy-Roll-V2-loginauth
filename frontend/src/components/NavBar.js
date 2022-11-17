@@ -35,7 +35,7 @@ export default function NavBar({ setUser, user, developer }) {
         <AppBar position="fixed" sx={{bgcolor: 'black'}}>
 
           <Toolbar id="navbar">
-            <Typography id='logo'variant="h4" component="div" sx={{ flexGrow: 1, color:'#ff9100' }}>
+            <Typography id='logo'variant="h4" component="div" onClick={() => navigate('/')} sx={{ flexGrow: 1, color:'#ff9100' }}>
               Crunchy Spin | Store
             </Typography>
             <div className="navlinks">
@@ -71,7 +71,7 @@ export default function NavBar({ setUser, user, developer }) {
         <AppBar position="fixed" sx={{bgcolor: 'black'}}>
 
           <Toolbar id="navbar">
-            <Typography id='logo'variant="h4" component="div" sx={{ flexGrow: 1, color:'#ff9100' }}>
+            <Typography id='logo'variant="h4" component="div"  onClick={() => navigate('/')} sx={{ flexGrow: 1, color:'#ff9100' }}>
               Crunchy Spin | Store
             </Typography>
             <div className="navlinks">
@@ -106,7 +106,7 @@ export default function NavBar({ setUser, user, developer }) {
       <AppBar position="fixed" sx={{bgcolor: 'black'}}>
 
         <Toolbar id="navbar">
-          <Typography id='logo'variant="h4" component="div" sx={{ flexGrow: 1, color:'#ff9100' }}>
+          <Typography id='logo'variant="h4" component="div" onClick={() => navigate('/')} sx={{ flexGrow: 1, color:'#ff9100' }}>
             Crunchy Spin | Store
           </Typography>
           <div className="navlinks">

@@ -187,11 +187,21 @@ h6{
     justify-content: center;
 
 }
-#image1{
+.homepageimg{
+    height: 400px;
+    width: 400px;
+}
+.homepageimg2{
+    height: 400px;
+    width: 559.88px;
+}
+.image1{
     position: relative;
+    margin: 10px;
+    cursor: pointer;
 }
 
-#image1text{
+.image1text{
     position: absolute;
     z-index: 1;
     font-size: 30px;
@@ -205,10 +215,39 @@ h6{
     right: 0;
     height: fit-content;
     margin: auto;
-    transition: background-color .3s ease-in-out
+    transition: background-color .3s ease-in-out;
+    cursor: pointer;
     
 }
-#image1:hover > #image1text{
-    background-color: rgba(136, 138, 138, 0.9); ; 
+.image1:hover > .image1text{
+    background-color: rgba(136, 138, 138, 0.9);
 }
-
+#logo{
+    cursor: pointer;
+}
+.priceper{
+    font-size: 24px;
+    
+}
+.productper{
+    font-size: 16.5px;
+    
+}
+.outofstockoption{
+    background-color: gray;
+    width: fit-content;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 9px 4px 4px gray;
+}
+.instockoption{
+    background-color:#ff9100;
+    width: fit-content;
+    padding: 5px;
+    color: rgb(52, 48, 48);
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 9px 4px 4px gray;
+}
