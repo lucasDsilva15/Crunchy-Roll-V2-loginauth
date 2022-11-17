@@ -17,7 +17,7 @@ export default function AllProducts ({setProducts, products, getallProducts}) {
             })
             
             ): (
-                <h1> Loading... </h1>
+                <h1> Loading... 1</h1>
             )}
             </div>
         </div>
