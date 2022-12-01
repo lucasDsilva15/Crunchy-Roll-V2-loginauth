@@ -16,7 +16,7 @@ username: hello password: world
 
 ## Deploy 
 This site was deployed using netflify and cyclic, the link to open the site is here:
-https://app.netlify.com/sites/thriving-arithmetic-7e4ffb/deploys/6375d656b41e4500093feaf8
+https://main--thriving-arithmetic-7e4ffb.netlify.app
 
 
 ## Future updates
